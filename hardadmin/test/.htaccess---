@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+php_value session.auto_start 1
+</IfModule>
+# Add cace expire to files
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault A86400
+    ExpiresByType image/x-icon A2419200
+    ExpiresByType image/gif A604800
+    ExpiresByType image/png A604800
+    ExpiresByType image/jpeg A604800
+    ExpiresByType text/css A604800
+    ExpiresByType application/x-javascript A604800
+    ExpiresByType text/plain A604800
+    ExpiresByType application/x-shockwave-flash A604800
+    ExpiresByType application/pdf A604800
+    ExpiresByType text/html A900
+    ExpiresByType text/php "access plus 6 hours"
+</IfModule>
